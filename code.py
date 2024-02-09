@@ -7,22 +7,15 @@ import sklearn.metrics as skm
 import sklearn.preprocessing as skp
 from sklearn import svm
 
-train=pd.read_csv('mnist_train.csv')
-sam=int(0.2*60000)
+train=pd.read_csv('mnist_train.csv') #this is taken from [LeCun et al., 1998a]
+sam=int(0.2*60000) # to save time use 20% of the data set for training
 data=train.sample(sam)
 
-dat=data.drop('label',axis=1).to_numpy()
-number=dat[0]
-number=number.reshape(28,28)
-lab=data['label'].to_numpy()
-print(lab[0])
-plt.matshow(number)
+print(sea.countplot(x='label', data=data)) # to see distribtution of numbers in sample
 
-sea.countplot(x='label', data=data)
-
-labels=data['label']
-images=data.drop('label',axis=1)
-scaler = skp.StandardScaler()
+labels=data['label'] #first row contains the labels of the data
+images=data.drop('label',axis=1) # these are the pixels coresponding to the numbers
+scaler = skp.StandardScaler() #scikit learn standard scaler used to fit the images pixels
 images=scaler.fit_transform(images)
 
 clf=svm.SVC(kernel='poly',degree=3)
@@ -72,3 +65,5 @@ own
 own=scaler.fit_transform(np.array(own).reshape(1,-1))
 pred=comp.predict(own)
 print(pred)
+
+#Y. LeCun, L. Bottou, Y. Bengio, and P. Haffner. "Gradient-based learning applied to document recognition." Proceedings of the IEEE, 86(11):2278-2324, November 1998.
