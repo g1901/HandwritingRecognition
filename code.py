@@ -1,8 +1,8 @@
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sea
-import sklearn.model_selection as sk
+import numpy as np #[Harris, C.R. et al, 2020]
+import pandas as pd #[McKinney 2010]
+import matplotlib.pyplot as plt #[Hunter, J.D, 2007]
+import seaborn as sea #[Waskom, M. L., 2021]
+import sklearn.model_selection as sk #[Pedregosa et al., 2011]
 import sklearn.metrics as skm
 import sklearn.preprocessing as skp
 from sklearn import svm
@@ -58,12 +58,9 @@ ax3.matshow(number3)
 ax4.set_title('Pred:{} Lab:{}'.format(predic[3],results[3]))
 ax4.matshow(number4)
 
-import  PIL as pil
-own=pil.Image.open("drawing1.png") # need to do a file for this
-own
-
-own=scaler.fit_transform(np.array(own).reshape(1,-1))
-pred=comp.predict(own)
-print(pred)
-
 #Y. LeCun, L. Bottou, Y. Bengio, and P. Haffner. "Gradient-based learning applied to document recognition." Proceedings of the IEEE, 86(11):2278-2324, November 1998.
+#Waskom, M. L., (2021). seaborn: statistical data visualization. Journal of Open Source Software, 6(60), 3021, https://doi.org/10.21105/joss.03021.
+# Pedregosa et al., Scikit-learn: Machine Learning in Python,JMLR 12, pp. 2825-2830, 2011.
+# McKinney, Data structures for statistical computing in python, Proceedings of the 9th Python in Science Conference, Volume 445, 2010.
+# J. D. Hunter, "Matplotlib: A 2D Graphics Environment", Computing in Science & Engineering, vol. 9, no. 3, pp. 90-95, 2007.
+#Harris, C.R., Millman, K.J., van der Walt, S.J. et al. Array programming with NumPy. Nature 585, 357–362 (2020). DOI: 10.1038/s41586-020-2649-2. 
